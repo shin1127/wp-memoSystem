@@ -2,5 +2,5 @@ package Converter;
 
 interface Converter {
 	
-	String convert(String fileName);
+	String convert(String value);
 }
