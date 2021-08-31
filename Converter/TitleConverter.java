@@ -11,6 +11,11 @@ public class TitleConverter implements Converter {
 		public String convert(String value) {
 		String title;
 		
+		
+		if(value.length() < 3) {
+			return "No Title";
+		}
+		
 		if(value.substring(0, 1).equals("# ")) {
 			title = value.replaceAll("# ", "");
 			return title;

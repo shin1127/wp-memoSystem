@@ -4,6 +4,10 @@ import Util.DbConnection;
 public class Main {
 	public static void main(String[] args) {
 		
+//		WpPost post = new WpPost();
+		
+		
+		
 		// file open
 //		File file = new File(./);
 //		file.listFiles();
@@ -19,5 +23,7 @@ public class Main {
 		
 		DbConnection dbcn = new DbConnection();
 		dbcn.dbConnect();
+		
+		
 	}
 }
