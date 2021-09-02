@@ -1,4 +1,5 @@
 import java.io.File;
+import Model.FileList;
 import Util.DbConnection;
 
 public class Main {
@@ -19,10 +20,15 @@ public class Main {
 		// getTags
 		
 		// insert data
-		
+		String path = "\\Users\\Owner\\Desktop\\JAVA\\fileopenTest";
 		
 		DbConnection dbcn = new DbConnection();
 		dbcn.dbConnect();
+		
+		FileList fl = new FileList();
+		fl.findFileName(path);
+		System.out.println(fl.getFileNameList());
+		
 		
 		
 	}
