@@ -3,9 +3,10 @@ package Model;
 import java.io.File;
 import java.util.ArrayList;
 
-public class FileList {
+public class FileInfoList {
 	
 	public ArrayList<String> fileNameList = new ArrayList<String>();
+	
 	
 	
 	public ArrayList<String> findFileName(String path) {

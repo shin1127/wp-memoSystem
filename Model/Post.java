@@ -7,8 +7,24 @@ public class Post {
 	private String excerpt;
 	private String to_ping;
 	private String pinged;
+	private String content_filtered;
 	
 	
+//	public void getInfo() {
+//		getTitle();
+//		getContent();
+//		getExcerpt();
+//		getTo_ping();
+//		getPinged();
+//		
+//	}
+	
+	public String getContent_filtered() {
+		return content_filtered;
+	}
+	public void setContent_filtered(String content_filtered) {
+		this.content_filtered = content_filtered;
+	}
 	public String getTitle() {
 		return title;
 	}

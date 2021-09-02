@@ -14,53 +14,53 @@ public class DbConnection {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-//		try {
-//
-//			con = DriverManager.getConnection(
-//					"jdbc:mysql://localhost/wordpress",
-//					"root",
-//					"1234"
-//					);
-//			System.out.println("database connection ssuccessed ");
-//			pstmt = con.prepareStatement("select * from wp_posts");
-//
-//			rs = pstmt.executeQuery();
-//
-//			while (rs.next()) {
-//				System.out.println(rs.getString("id"));
-//				System.out.println(rs.getString("post_title"));
-//			}
-//
-//		} 
-//		catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		finally {
-//			if (rs != null) {
-//				try {
-//					rs.close();
-//				} catch (SQLException e) {
-//					e.printStackTrace();
-//				}
-//			}
-//			if (pstmt != null) {
-//				try {
-//					pstmt.close();
-//				} catch (SQLException e) {
-//					e.printStackTrace();
-//				}
-//			}
-//			if (con != null) {
-//				try {
-//					con.close();
-//				} catch (SQLException e) {
-//					e.printStackTrace();
-//				}
-//			}   
-//		}
-		
+		//		try {
+		//
+		//			con = DriverManager.getConnection(
+		//					"jdbc:mysql://localhost/wordpress",
+		//					"root",
+		//					"1234"
+		//					);
+		//			System.out.println("database connection ssuccessed ");
+		//			pstmt = con.prepareStatement("select * from wp_posts");
+		//
+		//			rs = pstmt.executeQuery();
+		//
+		//			while (rs.next()) {
+		//				System.out.println(rs.getString("id"));
+		//				System.out.println(rs.getString("post_title"));
+		//			}
+		//
+		//		} 
+		//		catch (SQLException e) {
+		//			e.printStackTrace();
+		//		}
+		//		finally {
+		//			if (rs != null) {
+		//				try {
+		//					rs.close();
+		//				} catch (SQLException e) {
+		//					e.printStackTrace();
+		//				}
+		//			}
+		//			if (pstmt != null) {
+		//				try {
+		//					pstmt.close();
+		//				} catch (SQLException e) {
+		//					e.printStackTrace();
+		//				}
+		//			}
+		//			if (con != null) {
+		//				try {
+		//					con.close();
+		//				} catch (SQLException e) {
+		//					e.printStackTrace();
+		//				}
+		//			}   
+		//		}
+
 		// insert処理
-		
+
 		// 検証用に宣言するフィールド
 		String title = "no title";
 		String content = "no content";
@@ -71,20 +71,15 @@ public class DbConnection {
 
 		try {
 
-			con = DriverManager.getConnection(
-					"jdbc:mysql://localhost/wordpress",
-					"root",
-					"1234"
-					);
+			con = DriverManager.getConnection("jdbc:mysql://localhost/wordpress", "root", "1234");
 			System.out.println("database connection ssuccessed ");
-			
+
 			String sql = "insert into wp_posts"
-					+ "  (post_content, post_title, post_excerpt, to_ping, pinged, post_content_filtered)"
-					+ "  values"
+					+ "  (post_content, post_title, post_excerpt, to_ping, pinged, post_content_filtered)" + "  values"
 					+ "  (?, ?, ?, ?, ?, ?)";
-			
+
 			pstmt = con.prepareStatement(sql);
-			
+
 			// プレースホルダは1始まりらしい
 			pstmt.setString(1, content);
 			pstmt.setString(2, title);
@@ -92,20 +87,16 @@ public class DbConnection {
 			pstmt.setString(4, to_ping);
 			pstmt.setString(5, pinged);
 			pstmt.setString(6, content_filtered);
-			
-			
 
 			int num = pstmt.executeUpdate();
-//			while (rs.next()) {
-//				System.out.println(rs.getString("id"));
-//				System.out.println(rs.getString("post_title"));
-//			}
+			//			while (rs.next()) {
+			//				System.out.println(rs.getString("id"));
+			//				System.out.println(rs.getString("post_title"));
+			//			}
 
-		} 
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			if (rs != null) {
 				try {
 					rs.close();
@@ -126,31 +117,60 @@ public class DbConnection {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-			}   
+			}
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	}
+
+	public void insertPost(String title, String content, String excerpt, String to_ping, String pinged,
+			String content_filtered) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			// このあたりの宣言はクラス変数として記述したほうがよい
+			con = DriverManager.getConnection("jdbc:mysql://localhost/wordpress", "root", "1234");
+			System.out.println("database connection ssuccessed ");
+
+			String sql1 = "insert into wp_posts"
+					+ "  (post_content, post_title, post_excerpt, to_ping, pinged, post_content_filtered)" + "  values"
+					+ "  (?, ?, ?, ?, ?, ?)";
+
+			pstmt = con.prepareStatement(sql1);
+
+			pstmt = con.prepareStatement(sql1);
+			pstmt.setString(1, content);
+			pstmt.setString(2, title);
+			pstmt.setString(3, excerpt);
+			pstmt.setString(4, to_ping);
+			pstmt.setString(5, pinged);
+			pstmt.setString(6, content_filtered);
+			int num = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
 	}
 }
