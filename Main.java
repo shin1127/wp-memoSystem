@@ -10,35 +10,19 @@ public class Main {
 		
 //		WpPost post = new WpPost();
 		
-		
-		
 		// file open
 //		File file = new File(./);
 //		file.listFiles();
-		
-		// getTitle
-		
-		// getContent
-		
-		// getTags
-		
-		// insert data
+
 		String path = "\\Users\\Owner\\Desktop\\JAVA\\fileopenTest";
 		
-		DbConnection dbcn = new DbConnection();
-		dbcn.dbConnect();
-		
 		FileInfoList fl = new FileInfoList();
-		fl.findFileName(path);
+		fl.findInfo(path);
+		System.out.println(fl.getFilePathList());
 		System.out.println(fl.getFileNameList());
 		
-		
-		
-		
+
 		ArrayList<Post> postList = new ArrayList<Post>();
-		
-		
-		
 		
 		// お試し用のインスタンスつくるよ
 		Post post = new Post();
@@ -46,29 +30,25 @@ public class Main {
 		post.setContent("content");
 		post.setExcerpt("exce");
 		post.setPinged("pin");
-		post.setTo_ping("topin");
-		post.setContent_filtered("a");;
-		
+		post.setTo_ping("topin2");
+		post.setContent_filtered("a");
 		
 		postList.add(post);
 		
-		for(File f : fl) {
-			// hoge(f,postList)
-			// fの内容を加工してpostを作成、それをpostListにほうりこむメソッド
 		
-		}
+		Post post2 = new Post();
+		post2.setTitle("title2");
+		post2.setContent("content");
+		post2.setExcerpt("exce");
+		post2.setPinged("pin");
+		post2.setTo_ping("topin3");
+		post2.setContent_filtered("a");
 		
-		
-		for(Post p : postList) {
-			// ここでinsert処理したい
-			
-			DbConnection dbcn2 = new DbConnection();
-			dbcn2.insertPost(p.getTitle(), p.getContent(), p.getExcerpt(), p.getTo_ping(), p.getPinged(), p.getContent_filtered());
-//			String excerpt, String to_ping, String pinged,
-//			String content_filtered) {
-		}
+		postList.add(post2);
 		
 		
+		DbConnection dbcn2 = new DbConnection("jdbc:mysql://localhost/wordpress", "root", "1234");
+		dbcn2.insertPosts(postList);
 		
 	}
 }
