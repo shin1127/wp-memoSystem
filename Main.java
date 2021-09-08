@@ -1,6 +1,7 @@
 import java.io.File;
 import java.util.ArrayList;
 
+import Converter.FileToPost;
 import Model.FileInfoList;
 import Util.DbConnection;
 import Model.Post;
@@ -14,10 +15,9 @@ public class Main {
 //		File file = new File(./);
 //		file.listFiles();
 
-		String path = "\\Users\\Owner\\Desktop\\JAVA\\fileopenTest";
+		String DirectoryPath = "\\Users\\Owner\\Desktop\\JAVA\\fileopenTest";
 		
 		FileInfoList fl = new FileInfoList();
-		fl.findInfo(path);
 		System.out.println(fl.getFilePathList());
 		System.out.println(fl.getFileNameList());
 		
@@ -45,6 +45,20 @@ public class Main {
 		post2.setContent_filtered("a");
 		
 		postList.add(post2);
+		
+		FileToPost ftp = new FileToPost();
+		
+		
+		//
+		ArrayList<String> filePathList = new ArrayList<>();
+		
+		// ディレクトリパスからファイルパスを取得するメソッドをここで使う
+		FileInfoList fil = new FileInfoList();
+		fil.findInfo(DirectoryPath);
+		
+		for(String filePath : fil.getFilePathList()) {
+			ftp.FileToPostMethod(filePath, postList);
+		}
 		
 		
 		DbConnection dbcn2 = new DbConnection("jdbc:mysql://localhost/wordpress", "root", "1234");
