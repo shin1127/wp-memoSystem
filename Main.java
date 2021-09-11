@@ -15,7 +15,7 @@ public class Main {
 //		File file = new File(./);
 //		file.listFiles();
 
-		// TIL‚ÌƒfƒBƒŒƒNƒgƒŠƒpƒX
+		// TILã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹
 		String DirectoryPath = "args[0]";
 		
 		FileInfoList fl = new FileInfoList();
@@ -26,7 +26,7 @@ public class Main {
 
 		ArrayList<Post> postList = new ArrayList<Post>();
 		
-		// ‚¨‚µ—p‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Â‚­‚é‚æ
+		// ãŠè©¦ã—ç”¨ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¤ãã‚‹ã‚ˆ
 		Post post = new Post();
 		post.setTitle("title");
 		post.setContent("content");
@@ -54,7 +54,7 @@ public class Main {
 		//
 		ArrayList<String> filePathList = new ArrayList<>();
 		
-		// ƒfƒBƒŒƒNƒgƒŠƒpƒX‚©‚çƒtƒ@ƒCƒ‹ƒpƒX‚ğæ“¾‚·‚éƒƒ\ƒbƒh‚ğ‚±‚±‚Åg‚¤
+		// ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãƒ‘ã‚¹ã‹ã‚‰ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ã“ã“ã§ä½¿ã†
 		FileInfoList fil = new FileInfoList();
 		fil.findInfo(DirectoryPath);
 		

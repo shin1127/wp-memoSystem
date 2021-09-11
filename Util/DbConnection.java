@@ -44,7 +44,7 @@ public class DbConnection {
 	//	public void connect(String dsn, String user, String password) {
 	public void connect() {
 		try {
-			// ‚±‚Ì‚ ‚½‚è‚ÌéŒ¾‚ÍƒNƒ‰ƒX•Ï”‚Æ‚µ‚Ä‹Lq‚µ‚½‚Ù‚¤‚ª‚æ‚¢
+			// ã“ã®ã‚ãŸã‚Šã®å®£è¨€ã¯ã‚¯ãƒ©ã‚¹å¤‰æ•°ã¨ã—ã¦è¨˜è¿°ã—ãŸã»ã†ãŒã‚ˆã„
 			con = DriverManager.getConnection(dsn, user, password);
 //			con = DriverManager.getConnection("jdbc:mysql://localhost/wordpress", "root", "1234");
 			System.out.println("database connection ssuccessed ");
@@ -62,7 +62,7 @@ public class DbConnection {
 		String content_filtered) throws SQLException {
 		PreparedStatement pstmt = null;
 
-			// ‚±‚Ì‚ ‚½‚è‚ÌéŒ¾‚ÍƒNƒ‰ƒX•Ï”‚Æ‚µ‚Ä‹Lq‚µ‚½‚Ù‚¤‚ª‚æ‚¢
+			// ã“ã®ã‚ãŸã‚Šã®å®£è¨€ã¯ã‚¯ãƒ©ã‚¹å¤‰æ•°ã¨ã—ã¦è¨˜è¿°ã—ãŸã»ã†ãŒã‚ˆã„
 //			con = DriverManager.getConnection("jdbc:mysql://localhost/wordpress", "root", "1234");
 //			System.out.println("database connection ssuccessed ");
 

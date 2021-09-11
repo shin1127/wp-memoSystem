@@ -8,7 +8,7 @@ package Converter;
  */
 public class ContentConverter implements Converter {
 
-	// “ü—Í‚³‚ê‚½1s‚ÌmarkdownŒ`®‚Ì•¶š—ñ‚ğHTML‚É•ÏŠ·‚·‚é
+	// å…¥åŠ›ã•ã‚ŒãŸ1è¡Œã®markdownå½¢å¼ã®æ–‡å­—åˆ—ã‚’HTMLã«å¤‰æ›ã™ã‚‹
 	public String convert(String line) {
 		
 		line = headerConvert(line);
@@ -17,7 +17,7 @@ public class ContentConverter implements Converter {
 		return line;
 	}
 
-	// #‚Ån‚Ü‚é‚Æ‚«Aƒwƒbƒ_[ƒ^ƒO‚Ö’uŠ·‚·‚é
+	// #ã§å§‹ã¾ã‚‹ã¨ãã€ãƒ˜ãƒƒãƒ€ãƒ¼ã‚¿ã‚°ã¸ç½®æ›ã™ã‚‹
 	private String headerConvert(String line) {
 
 		if(line.length() < 2){
@@ -51,10 +51,10 @@ public class ContentConverter implements Converter {
 		}
 		
 		if("- ".equals(line)) {
-			return "E" + line;
+			return "ãƒ»" + line;
 		}
 		
-		// TODO ƒlƒXƒg‚³‚ê‚½ƒŠƒXƒgƒ^ƒO‚Ì‚Æ‚«
+		// TODO ãƒã‚¹ãƒˆã•ã‚ŒãŸãƒªã‚¹ãƒˆã‚¿ã‚°ã®ã¨ã
 		return line;
 	}
 	
