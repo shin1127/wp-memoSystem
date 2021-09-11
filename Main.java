@@ -15,9 +15,11 @@ public class Main {
 //		File file = new File(./);
 //		file.listFiles();
 
-		String DirectoryPath = "\\Users\\Owner\\Desktop\\JAVA\\fileopenTest";
+		// TILのディレクトリパス
+		String DirectoryPath = "args[0]";
 		
 		FileInfoList fl = new FileInfoList();
+
 		System.out.println(fl.getFilePathList());
 		System.out.println(fl.getFileNameList());
 		
@@ -60,7 +62,9 @@ public class Main {
 			ftp.FileToPostMethod(filePath, postList);
 		}
 		
-		
+		// param1 url
+		// param2 user-name
+		// param3 password
 		DbConnection dbcn2 = new DbConnection("jdbc:mysql://localhost/wordpress", "root", "1234");
 		dbcn2.insertPosts(postList);
 		

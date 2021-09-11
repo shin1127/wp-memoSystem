@@ -18,11 +18,16 @@ public class FileInfoList {
 				filePathList.add(f.getAbsolutePath());
 				System.out.println("filenameis");
 				System.out.println(f.getName());
-//				fileNameList.add(f.getName().replaceAll("\\.*", ""));
 				fileNameList.add(f.getName().replaceAll("\\.[^.]*$", ""));
 			}
 			else if(f.isDirectory()) {
-				findInfo(f.getAbsolutePath());
+				String dirPath = f.getAbsolutePath();
+				String dirName = f.getName();
+//				if(dirName.matches("*.git")) {
+				if(".git".equals(dirName)) {
+					continue;
+				}
+				findInfo(dirPath);
 			}
 		}
 		return filePathList;
