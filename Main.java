@@ -65,7 +65,7 @@ public class Main {
 		// param1 url
 		// param2 user-name
 		// param3 password
-		DbConnection dbcn2 = new DbConnection("jdbc:mysql://localhost/wordpress", "root", "1234");
+		DbConnection dbcn2 = new DbConnection(args[1], args[2], args[3]);
 		dbcn2.insertPosts(postList);
 		
 	}
