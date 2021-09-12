@@ -25,6 +25,11 @@ public class DbConnection {
 //	}
 
 	
+	/**
+	 * @param dsn データベースネーム
+	 * @param user ユーザー名
+	 * @param password パスワード
+	 */
 	public DbConnection(String dsn, String user, String password){
 		this.dsn = dsn;
 		this.user = user;
@@ -42,6 +47,9 @@ public class DbConnection {
 
 
 	//	public void connect(String dsn, String user, String password) {
+	/** データベースに接続する
+	 * 
+	 */
 	public void connect() {
 		try {
 			// このあたりの宣言はクラス変数として記述したほうがよい
@@ -58,6 +66,15 @@ public class DbConnection {
 	
 	
 
+	/** データベースのテーブルに記事情報を挿入する
+	 * @param title
+	 * @param content
+	 * @param excerpt
+	 * @param to_ping
+	 * @param pinged
+	 * @param content_filtered
+	 * @throws SQLException
+	 */
 	public void insertPost(String title, String content, String excerpt, String to_ping, String pinged,
 		String content_filtered) throws SQLException {
 		PreparedStatement pstmt = null;
@@ -90,6 +107,9 @@ public class DbConnection {
 	
 	
 	
+	/** 引数で指定したArrayListに格納した記事情報を順にデータベースに挿入する
+	 * @param posts
+	 */
 	public void insertPosts(ArrayList<Post> posts) {
 		
 		try {

@@ -5,10 +5,15 @@ import java.util.ArrayList;
 
 public class FileInfoList {
 	
+	
 	private ArrayList<String> filePathList = new ArrayList<String>();
 	private ArrayList<String> fileNameList = new ArrayList<String>();
 	
 	
+	/** 指定したディレクトリパス以下に格納されているファイル名をArrayListに加える
+	 * @param path ディレクトリパス
+	 * @return 
+	 */
 	public ArrayList<String> findInfo(String path) {
 		File file = new File(path);
 		File[] list = file.listFiles();

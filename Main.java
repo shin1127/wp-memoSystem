@@ -7,6 +7,9 @@ import Util.DbConnection;
 import Model.Post;
 
 public class Main {
+	/** WordPress記事変換システムのメインメソッド
+	 * @param args 実行時引数 TILのディレクトリパス、DBホスト名、ユーザー名、パスワード
+	 */
 	public static void main(String[] args) {
 		
 //		WpPost post = new WpPost();
@@ -16,7 +19,7 @@ public class Main {
 //		file.listFiles();
 
 		// TILのディレクトリパス
-		String DirectoryPath = "args[0]";
+		String DirectoryPath = args[0];
 		
 		FileInfoList fl = new FileInfoList();
 

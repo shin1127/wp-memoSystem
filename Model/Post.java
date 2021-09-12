@@ -1,5 +1,9 @@
 package Model;
 
+/** WordPressの記事(post)クラス
+ * @author Owner
+ *
+ */
 public class Post {
 //	private String author;
 	private String title;

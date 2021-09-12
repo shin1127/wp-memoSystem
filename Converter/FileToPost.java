@@ -9,8 +9,16 @@ import java.util.ArrayList;
 
 import Model.Post;
 
+/**
+ * @author Owner
+ *
+ */
 public class FileToPost {
 	
+	/** パスで指定したファイルから、記事生成に必要な情報を取得する
+	 * @param path ファイルパス
+	 * @param ary 記事情報を格納するリスト
+	 */
 	public void FileToPostMethod(String path, ArrayList<Post> ary){
 		Post post = new Post();
 		convertTitle(path, post);
@@ -23,11 +31,19 @@ public class FileToPost {
 		
 	}
 	
+	/**
+	 * @param path
+	 * @param post
+	 */
 	public void convertTitle(String path, Post post) {
 		String title = new File(path).getName().replaceAll("\\.[^.]*$", "");
 		post.setTitle(title);
 	}
 	
+	/** 
+	 * @param path ファイルパス
+	 * @param post 
+	 */
 	public void convertContent(String path, Post post) {
 		Path p = Paths.get(path);
 		String content = "";
